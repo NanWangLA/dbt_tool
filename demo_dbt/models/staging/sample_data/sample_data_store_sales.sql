@@ -3,6 +3,7 @@ with  source_store_sales as (
 ),
 final as(
     select * from source_store_sales
+    limit 10
 )
 
 select * from final
