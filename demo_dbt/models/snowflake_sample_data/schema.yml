@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: SNOWFLAKE_SAMPLE_DATA
+    description: 'A sample database provided by SnowFlake'
+    # "SNOWFLAKE_SAMPLE_DATA"."TPCDS_SF10TCL"."STORE_SALES"
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCDS_SF10TCL
+    tables:
+      - name: STORE_SALES
+        description: "Detials about the sales in the store"
