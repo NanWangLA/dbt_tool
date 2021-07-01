@@ -1,0 +1,16 @@
+
+version: 2
+
+models:
+   
+    - name: example_team_detials
+      description: "A list of a few NBA teams thay made the play"
+
+      columns:
+          - name: name
+            description: "the name of team"
+        
+          - name: city
+            description: "the home city of the team"
+            tests:
+              - is_la_team
