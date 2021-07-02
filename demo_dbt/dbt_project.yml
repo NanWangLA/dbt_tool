@@ -28,9 +28,20 @@ vars:
   current_champion: Lakers
 
 
+on-run-start: "{{ insert_audits('run_start') }}"
+on-run-end: "{{ insert_audits('run_end') }}"
+
+# on-run-start: "insert into DEMO_DB.PUBLIC.DBT_AUDITS (audit_type) values('run_start');commit;"
+# on-run-end: "insert into DEMO_DB.PUBLIC.DBT_AUDITS (audit_type) values('run_end');commit;"
 
 
 models:
+  # pre-hook: "insert into DEMO_DB.PUBLIC.DBT_AUDITS (audit_type) values('model_start');commit;"
+  # post-hook: "insert into DEMO_DB.PUBLIC.DBT_AUDITS (audit_type) values('model_end');commit;"
+
+  pre-hook: "{{ insert_audits('model_start') }}"
+  post-hook: "{{ insert_audits('model_end') }}"
+
   demo_dbt:
       # Applies to all files under models/staging/
       staging:
