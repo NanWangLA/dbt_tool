@@ -1,0 +1,28 @@
+
+version: 2
+
+sources:
+  - name: demo_source
+    database: demo_db
+    schema: public
+
+
+
+    freshness:
+      warn_after:
+        count: 1
+        period: minute
+      error_after:
+        count: 5
+        period: minute
+      filter: datediff('minute', created_at, current_timestamp) < 20
+    # loaded_at_field: "convert_timezone('UTC', 'America/Los_Angeles', created_at)"
+    loaded_at_field: created_at
+
+    tables:
+      - name: my_fav_source
+        description: 'You always know.'
+        columns:
+         - name: id
+         - name: name
+         - name: created_at

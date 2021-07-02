@@ -9,3 +9,5 @@ sources:
     tables:
       - name: STORE_SALES
         description: "Detials about the sales in the store"
+
+  
